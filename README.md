@@ -6,4 +6,6 @@
 
 
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=SVIGHNESH&theme=algolia)](https://github.com/ryo-ma/github-profile-trophy)
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
