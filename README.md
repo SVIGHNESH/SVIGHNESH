@@ -96,9 +96,9 @@ motto:      Make it work → right → fast.
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=svighnesh&theme=tokyonight&hide_border=true&bg_color=1a1b27&include_all_commits=true&count_private=true&layout=compact&title_color=7aa2f7" />
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <img height="165" src="https://nirzak-streak-stats.vercel.app/?user=svighnesh&theme=tokyonight&hide_border=true&background=1a1b27&stroke=7aa2f7&ring=7aa2f7&fire=bb9af7&currStreakLabel=7aa2f7" />
-</p>
+</p> -->
 
 <!-- <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=svighnesh&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&row=1&column=7" />
