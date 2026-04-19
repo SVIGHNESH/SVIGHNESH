@@ -100,12 +100,12 @@ motto:      Make it work → right → fast.
   <img height="165" src="https://nirzak-streak-stats.vercel.app/?user=svighnesh&theme=tokyonight&hide_border=true&background=1a1b27&stroke=7aa2f7&ring=7aa2f7&fire=bb9af7&currStreakLabel=7aa2f7" />
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=svighnesh&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&row=1&column=7" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=svighnesh&theme=tokyo-night&hide_border=true&bg_color=1a1b27&color=7aa2f7&line=7aa2f7&point=c0caf5&area=true" alt="activity" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=svighnesh&theme=tokyo-night&hide_border=true&bg_color=1a1b27&color=7aa2f7&line=7aa2f7&point=c0caf5&area=true" alt="activity" /> -->
 </p>
 
 &nbsp;
