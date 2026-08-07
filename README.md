@@ -1,7 +1,7 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:1f6feb,100:58a6ff&height=180&section=header&text=Vighnesh%20Shukla&fontColor=ffffff&fontSize=48&fontAlignY=34&desc=backend%20%C2%B7%20systems%20%C2%B7%20the%20terminal&descAlignY=54&descSize=16" width="100%" alt="Vighnesh Shukla">
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=3200&pause=900&color=58A6FF&center=true&vCenter=true&width=620&lines=I+rebuild+the+tools+I+use%2C+from+scratch.;Redis+in+Java.+Git+in+Go.+Tetris+in+C%2B%2B.;No+engines.+No+frameworks.+No+dependencies.;Then+I+go+back+to+the+terminal." alt="I rebuild the tools I use, from scratch">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=3200&pause=900&color=58A6FF&center=true&vCenter=true&width=620&lines=I+rebuild+the+tools+I+use%2C+from+scratch.;Redis+in+Java.+Git+in+Go.+Tetris+in+C%2B%2B.;Then+I+go+back+to+the+terminal." alt="I rebuild the tools I use, from scratch">
 </p>
 
 <p align="center">
