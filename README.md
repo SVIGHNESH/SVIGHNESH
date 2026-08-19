@@ -8,7 +8,6 @@
   <a href="https://www.linkedin.com/in/vighnesh0/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:vighneshshukla00@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
   <a href="https://takeuforward.org/profile/SVIGHNESH"><img src="https://img.shields.io/badge/TakeUForward-D71F26?style=for-the-badge&logo=leetcode&logoColor=white" alt="TakeUForward"></a>
-  <img src="https://komarev.com/ghpvc/?username=svighnesh&style=for-the-badge&color=58A6FF&label=PROFILE+VIEWS" alt="Profile views">
 </p>
 
 ---
@@ -135,23 +134,20 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 
 <!--
   Stats cards run on a community mirror of github-readme-stats, because the
-  official instance (github-readme-stats.vercel.app) is currently returning
-  503 DEPLOYMENT_PAUSED. If this mirror ever dies too, swap the host for one of:
-      github-readme-stats-salesp07.vercel.app     (verified working)
-      github-readme-stats-sigma-five.vercel.app   (works, but caps top-langs at 5)
-  The permanent fix is to deploy your own fork to Vercel and point these at it:
+  official instance (github-readme-stats.vercel.app) returns 503 DEPLOYMENT_PAUSED.
+  GitHub's Camo image proxy times out after ~4s, so the mirror must be FAST, not
+  just up. sigma-five is the fastest verified mirror (~1.5-2.5s); it caps
+  top-langs at 5 languages. Slower fallback: github-readme-stats-salesp07.vercel.app
+  (~4s, borderline). The permanent fix is to deploy your own fork to Vercel:
       https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance
-  Note: github-profile-trophy.vercel.app is dead (402 Payment Required), which is
-  why there is no trophy row here.
+  Removed: streak-stats.demolab.com (instance dead, connection times out),
+  komarev.com views counter (~5s, exceeds Camo timeout),
+  github-profile-trophy.vercel.app (402 Payment Required).
 -->
 
 <p align="center">
-  <img src="https://github-readme-stats-one-gules.vercel.app/api?username=svighnesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=c9d1d9&include_all_commits=true" alt="GitHub stats" height="170">
-  <img src="https://github-readme-stats-one-gules.vercel.app/api/top-langs/?username=svighnesh&layout=compact&langs_count=8&hide=html,css,jupyter%20notebook&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=c9d1d9" alt="Most used languages" height="170">
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=svighnesh&theme=tokyonight&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" alt="Contribution streak" height="170">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=svighnesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=c9d1d9&include_all_commits=true" alt="GitHub stats" height="170">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=svighnesh&layout=compact&hide=html,css,jupyter%20notebook&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=c9d1d9" alt="Most used languages" height="170">
 </p>
 
 <p align="center">
