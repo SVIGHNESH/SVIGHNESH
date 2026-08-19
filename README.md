@@ -135,10 +135,11 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 <!--
   Stats cards run on a community mirror of github-readme-stats, because the
   official instance (github-readme-stats.vercel.app) returns 503 DEPLOYMENT_PAUSED.
-  GitHub's Camo image proxy times out after ~4s, so the mirror must be FAST, not
-  just up. sigma-five is the fastest verified mirror (~1.5-2.5s); it caps
-  top-langs at 5 languages. Slower fallback: github-readme-stats-salesp07.vercel.app
-  (~4s, borderline). The permanent fix is to deploy your own fork to Vercel:
+  GitHub's Camo image proxy times out after ~4s, so the mirror must be fast AND
+  under its GitHub API rate limit. sigma-five started returning "Maximum retries
+  exceeded" (rate-limited), so this now uses salesp07. Every shared mirror will
+  eventually hit the same limit; the permanent fix is to deploy your own fork to
+  Vercel with your own PAT_1 token:
       https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance
   Removed: streak-stats.demolab.com (instance dead, connection times out),
   komarev.com views counter (~5s, exceeds Camo timeout),
@@ -146,8 +147,8 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 -->
 
 <p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=svighnesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=c9d1d9&include_all_commits=true" alt="GitHub stats" height="170">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=svighnesh&layout=compact&hide=html,css,jupyter%20notebook&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=c9d1d9" alt="Most used languages" height="170">
+  <img src="https://github-readme-stats-salesp07.vercel.app/api?username=svighnesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=c9d1d9&include_all_commits=true" alt="GitHub stats" height="170">
+  <img src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=svighnesh&layout=compact&langs_count=8&hide=html,css,jupyter%20notebook&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=c9d1d9" alt="Most used languages" height="170">
 </p>
 
 <p align="center">
