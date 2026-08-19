@@ -44,13 +44,16 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 |---|---|---|
 | [**jedis**](https://github.com/SVIGHNESH/jedis) `Java` | A Redis-compatible key-value store. Real `redis-cli` and `redis-benchmark` connect to it unmodified. | Hand-built RESP parser, single-threaded event loop owning the whole keyspace, and active expiry cycles. JUnit is the only library in the repo. |
 | [**kit**](https://github.com/SVIGHNESH/KIT) `Go` | A version control system that keeps what git got right and drops what it got wrong. | No staging area, one job per command, and every history-changing operation journaled so `kit undo` and `kit redo` never silently lose work. |
-| [**tetris**](https://github.com/SVIGHNESH/tetris) `C++20` | A terminal Tetris where the engine does not know the terminal exists. | `tetris_core` never links ncurses, so the entire game is testable without a TTY. Catch2 suite, CMake, UI is an optional build flag. |
+| [**tetris**](https://github.com/SVIGHNESH/tetris) `C++20` | A terminal Tetris where the engine does not know the terminal exists. [tetris-web](https://github.com/SVIGHNESH/tetris-web) compiles the same engine to WebAssembly for the browser. | `tetris_core` never links ncurses, so the entire game is testable without a TTY. Catch2 suite, CMake, UI is an optional build flag. |
+| [**pellet-rush**](https://github.com/SVIGHNESH/pellet-rush) `TypeScript` | A neon arcade maze-chase game with no game engine and no art assets. | Everything on screen is drawn procedurally on a canvas, and every sound is a shaped oscillator. Original maze, artwork, and code. |
 | [**Billy8rds**](https://github.com/SVIGHNESH/Billy8rds) `Kotlin` | Offline 8-ball pool for Android that stays smooth on decade-old phones. | Zero dependencies, not even AndroidX. Custom `SurfaceView` loop with adaptive substepping so fast shots never tunnel through rails, and zero allocations on the frame path. |
 | [**p2p-fileshare**](https://github.com/SVIGHNESH/p2p-fileshare) `Java` | Cross-platform peer-to-peer file transfer with no server in the middle. | UDP multicast peer discovery, TLS 1.3 on the wire, and parallel multi-peer downloads that resume. One shared core behind both JavaFX and Android. |
 
 ---
 
 ### `~$ ls agents/`
+
+> LLM agents that do real operational work - with a human gate in front of anything risky.
 
 | Project | What it is |
 |---|---|
@@ -64,12 +67,28 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 
 ### `~$ ls web/`
 
+> Real-time things in the browser: authoritative servers, WebSockets, and as little framework as each one can get away with.
+
 | Project | What it is |
 |---|---|
 | [**StudioBoard**](https://github.com/SVIGHNESH/StudioBoard) `TypeScript` | Real-time collaborative whiteboard with live cursors, presence, a global undo/redo stack shared across clients, client-side image downscaling, and PNG export. |
 | [**multiplayer-shooter**](https://github.com/SVIGHNESH/multiplayer-shooter) `JavaScript` | A 2D arena shooter in the browser with a room-code invite system. The server is authoritative: it runs the physics tick and clients only send input, which keeps the game cheat-resistant and desync-free. No framework and no build step. |
 | [**The Java Dictionary**](https://github.com/SVIGHNESH/java-dictionary) `TypeScript` | The vocabulary of Java and the JVM as an interactive 3D knowledge graph. There is no `nodes.json`: the markdown links between entries *are* the edges, so the graph can never drift out of date with the writing. |
+| [**watch-party**](https://github.com/SVIGHNESH/watch-party) `Go` | Pre-upload a video, then watch it in sync with 20-50 friends. ffmpeg transcodes once into a 3-rendition HLS ladder; a WebSocket hub per room keeps canonical playback state, so late joiners snap to the right position and only the host can seek. |
+| [**oss-contribution-finder**](https://github.com/SVIGHNESH/oss-contribution-finder) `TypeScript` | Finds GitHub issues you can realistically contribute to, ranked by language fit, issue clarity, and repo health - and every recommendation explains why it was suggested. Next.js, Postgres/Drizzle, GitHub OAuth. |
 | [**MacQuiz v2**](https://github.com/SVIGHNESH/MacQuizV2) `Go` | A role-based quiz platform rebuilt as a modular monolith, designed against a real SDD with a documented data model, permission matrix, and $0-hosting deployment plan. |
+
+---
+
+### `~$ ls omarchy-plugins/`
+
+> Widgets for the [Omarchy](https://omarchy.org) shell, written in QML and published on the plugin marketplace.
+
+| Plugin | What it is |
+|---|---|
+| [**Pacman Sentry**](https://github.com/SVIGHNESH/pacman-sentry) `QML` | Keeps an eye on pacman from the bar: pending update count, risky packages (kernel, nvidia, grub...) flagged and sorted first, unread Arch news with manual-intervention posts highlighted, and `.pacnew` files that would otherwise be forgotten. |
+| [**Omanews**](https://github.com/SVIGHNESH/omanews) `QML` | Hacker News as a triage surface, not a reader: an unread badge in the bar, a compact dropdown with Top/New/Best tabs, and one click to eject to the browser for anything worth reading. |
+| [**Portboard**](https://github.com/SVIGHNESH/omarchy-portboard) `QML` | A summonable overlay showing every listening localhost TCP port with its process, PID, and working directory. Answers "which dev server is on 5173?" without leaving the keyboard. |
 
 <details>
 <summary><b>~$ ls experiments/</b></summary>
@@ -83,6 +102,9 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 - [**Signal**](https://github.com/SVIGHNESH/SkillMAtcher) - scores a resume against a job description, then writes a plan to close the missing skills. SvelteKit and FastAPI
 - [**KANBANI**](https://github.com/SVIGHNESH/KANBANI) - offline-first Kanban board for the desktop. Tauri and Rust over bundled SQLite, no accounts and no cloud
 - [**JOLT // 88**](https://github.com/SVIGHNESH/Jolt-Refurbished) - a loud little notebook app. Next.js 14 on Postgres with Drizzle, Auth.js and Upstash rate limiting
+- [**Stackpage**](https://github.com/SVIGHNESH/Stackpage) - offline Android images-to-PDF utility. Declares no permissions at all, not even INTERNET, so "nothing is uploaded" is structural, not a promise
+- [**merge-blocks**](https://github.com/SVIGHNESH/merge-blocks) - mobile falling-block merge puzzle. Tetromino pieces carry powers of two; equal neighbours fuse and cascade. Offline, with a date-seeded daily challenge
+- [**train-tracker**](https://github.com/SVIGHNESH/train-tracker) - "Where is my Train" style app in Expo: live station-by-station status, delays, platforms, and direct-train search
 - [**DORO**](https://github.com/SVIGHNESH/DORO) - Pomodoro timer in Go
 - [**Neutralise**](https://github.com/SVIGHNESH/Neutralise) - browser extension that removes Shorts from YouTube
 - [**Scripts**](https://github.com/SVIGHNESH/Scripts), [**tmux-config**](https://github.com/SVIGHNESH/vighnesh-tmux-config), [**Hyprland-Config**](https://github.com/SVIGHNESH/Hyprland-Config) - the dotfiles that make the machine mine
@@ -102,6 +124,7 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
+![QML](https://img.shields.io/badge/QML-41CD52?style=flat-square&logo=qt&logoColor=white)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 
