@@ -22,151 +22,69 @@ vighnesh@arch
  os        Arch Linux + Hyprland
  shell     bash + tmux, all day
  writes    Java  ·  Go  ·  TypeScript  ·  Python  ·  C++
- runtime   Spring Boot · FastAPI · Node.js · Socket.IO
+ runtime   Spring Boot · FastAPI · Node.js · WebSockets
  learning  Linux internals, distributed systems, AI agents
  wants     a backend role where what happens underneath matters
 ──────────────────────────────────────────────────
 ```
 
-I got hooked on backend engineering the first time I really understood what the JVM was doing underneath me.
-The idea that my code was being JIT-compiled, garbage-collected, and tuned by a runtime I had never looked at made me want to open every layer below it.
+Backend engineering hooked me the day I noticed the JVM was JIT-compiling, garbage-collecting, and tuning my code without ever asking me.
+I wanted to see every layer underneath it, so I started opening them one at a time.
 
-So now I rebuild things.
-Not to replace them, but because reading a Redis internals post and writing a working RESP parser are two completely different amounts of understanding.
-
----
-
-### `~$ ls from-scratch/`
-
-> The rule for this shelf: **no engine, no framework, and as close to no dependencies as the language allows.**
-
-| Project | What it is | Why it was hard |
-|---|---|---|
-| [**jedis**](https://github.com/SVIGHNESH/jedis) `Java` | A Redis-compatible key-value store. Real `redis-cli` and `redis-benchmark` connect to it unmodified. | Hand-built RESP parser, single-threaded event loop owning the whole keyspace, and active expiry cycles. JUnit is the only library in the repo. |
-| [**kit**](https://github.com/SVIGHNESH/KIT) `Go` | A version control system that keeps what git got right and drops what it got wrong. | No staging area, one job per command, and every history-changing operation journaled so `kit undo` and `kit redo` never silently lose work. |
-| [**tetris**](https://github.com/SVIGHNESH/tetris) `C++20` | A terminal Tetris where the engine does not know the terminal exists. [tetris-web](https://github.com/SVIGHNESH/tetris-web) compiles the same engine to WebAssembly for the browser. | `tetris_core` never links ncurses, so the entire game is testable without a TTY. Catch2 suite, CMake, UI is an optional build flag. |
-| [**pellet-rush**](https://github.com/SVIGHNESH/pellet-rush) `TypeScript` | A neon arcade maze-chase game with no game engine and no art assets. | Everything on screen is drawn procedurally on a canvas, and every sound is a shaped oscillator. Original maze, artwork, and code. |
-| [**Billy8rds**](https://github.com/SVIGHNESH/Billy8rds) `Kotlin` | Offline 8-ball pool for Android that stays smooth on decade-old phones. | Zero dependencies, not even AndroidX. Custom `SurfaceView` loop with adaptive substepping so fast shots never tunnel through rails, and zero allocations on the frame path. |
-| [**p2p-fileshare**](https://github.com/SVIGHNESH/p2p-fileshare) `Java` | Cross-platform peer-to-peer file transfer with no server in the middle. | UDP multicast peer discovery, TLS 1.3 on the wire, and parallel multi-peer downloads that resume. One shared core behind both JavaFX and Android. |
+That is why most of what is on this page is rebuilt from scratch.
+Not to replace Redis or git, but because reading about how they work and making `redis-cli` connect to a server you wrote yourself are two very different amounts of understanding.
 
 ---
 
-### `~$ ls agents/`
+### `~$ ls --sort=weight`
 
-> LLM agents that do real operational work - with a human gate in front of anything risky.
+> Eight projects, not eighty. Everything else is on the [repositories tab](https://github.com/SVIGHNESH?tab=repositories).
 
-| Project | What it is |
+| Project | One line |
 |---|---|
-| [**OpsCommander**](https://github.com/SVIGHNESH/opscommander) `Python` | Seven specialised agents that detect, diagnose, gate, remediate, and report on cloud incidents, with a human in the loop before anything risky runs. Every AWS service is mocked locally, so it works with zero credentials and zero config. |
-| [**CloudGuard**](https://github.com/SVIGHNESH/CloudGuard) `Python` | An agentic AWS security and compliance auditor. Scans IAM, S3, EC2, Lambda and security groups, reasons about findings with Bedrock, scores severity, and can remediate through SSM after approval. |
-| [**reddit-scraper**](https://github.com/SVIGHNESH/reddit-scraper) `Python` | Jobs, internships and memes pulled off Reddit every 15 minutes. There is no server and nothing to pay for: Actions is the cron, the repo is the database, Pages is the frontend, and Telegram is the alert channel. |
-| [**Oryn**](https://github.com/SVIGHNESH/Oryn) `Python` | A coding agent on LangGraph, written from an architecture document down to the agent loop. It was the first one I took end to end, and the reason the rest of this list exists. |
-| [**LangGraph_RAG_AGENT**](https://github.com/SVIGHNESH/LangGraph_RAG_AGENT) `Python` | An agentic RAG pipeline built on LangGraph. |
-
----
-
-### `~$ ls web/`
-
-> Real-time things in the browser: authoritative servers, WebSockets, and as little framework as each one can get away with.
-
-| Project | What it is |
-|---|---|
-| [**StudioBoard**](https://github.com/SVIGHNESH/StudioBoard) `TypeScript` | Real-time collaborative whiteboard with live cursors, presence, a global undo/redo stack shared across clients, client-side image downscaling, and PNG export. |
-| [**multiplayer-shooter**](https://github.com/SVIGHNESH/multiplayer-shooter) `JavaScript` | A 2D arena shooter in the browser with a room-code invite system. The server is authoritative: it runs the physics tick and clients only send input, which keeps the game cheat-resistant and desync-free. No framework and no build step. |
-| [**The Java Dictionary**](https://github.com/SVIGHNESH/java-dictionary) `TypeScript` | The vocabulary of Java and the JVM as an interactive 3D knowledge graph. There is no `nodes.json`: the markdown links between entries *are* the edges, so the graph can never drift out of date with the writing. |
-| [**watch-party**](https://github.com/SVIGHNESH/watch-party) `Go` | Pre-upload a video, then watch it in sync with 20-50 friends. ffmpeg transcodes once into a 3-rendition HLS ladder; a WebSocket hub per room keeps canonical playback state, so late joiners snap to the right position and only the host can seek. |
-| [**oss-contribution-finder**](https://github.com/SVIGHNESH/oss-contribution-finder) `TypeScript` | Finds GitHub issues you can realistically contribute to, ranked by language fit, issue clarity, and repo health - and every recommendation explains why it was suggested. Next.js, Postgres/Drizzle, GitHub OAuth. |
-| [**MacQuiz v2**](https://github.com/SVIGHNESH/MacQuizV2) `Go` | A role-based quiz platform rebuilt as a modular monolith, designed against a real SDD with a documented data model, permission matrix, and $0-hosting deployment plan. |
-
----
-
-### `~$ ls omarchy-plugins/`
-
-> Widgets for the [Omarchy](https://omarchy.org) shell, written in QML and published on the plugin marketplace.
-
-| Plugin | What it is |
-|---|---|
-| [**Pacman Sentry**](https://github.com/SVIGHNESH/pacman-sentry) `QML` | Keeps an eye on pacman from the bar: pending update count, risky packages (kernel, nvidia, grub...) flagged and sorted first, unread Arch news with manual-intervention posts highlighted, and `.pacnew` files that would otherwise be forgotten. |
-| [**Omanews**](https://github.com/SVIGHNESH/omanews) `QML` | Hacker News as a triage surface, not a reader: an unread badge in the bar, a compact dropdown with Top/New/Best tabs, and one click to eject to the browser for anything worth reading. |
-| [**Portboard**](https://github.com/SVIGHNESH/omarchy-portboard) `QML` | A summonable overlay showing every listening localhost TCP port with its process, PID, and working directory. Answers "which dev server is on 5173?" without leaving the keyboard. |
-
-<details>
-<summary><b>~$ ls experiments/</b></summary>
-
-<br>
-
-- [**MultiFileRAGBot**](https://github.com/SVIGHNESH/MulitFileRAGBOt) and [**RAGAgentChat**](https://github.com/SVIGHNESH/RAGAgEnTChat) - RAG chatbots over multiple document sources
-- [**AI_Medical_Receptionist**](https://github.com/SVIGHNESH/AI_Medical_Receptionist) - voice-driven receptionist for clinics
-- [**NIDS**](https://github.com/SVIGHNESH/NIDS---Network-Intrusion-Detection-System) - network intrusion detection in Python
-- [**DrumCV**](https://github.com/SVIGHNESH/DrumCV) and [**CameraPiano**](https://github.com/SVIGHNESH/CameraPiano) - play instruments through a webcam using computer vision
-- [**Signal**](https://github.com/SVIGHNESH/SkillMAtcher) - scores a resume against a job description, then writes a plan to close the missing skills. SvelteKit and FastAPI
-- [**KANBANI**](https://github.com/SVIGHNESH/KANBANI) - offline-first Kanban board for the desktop. Tauri and Rust over bundled SQLite, no accounts and no cloud
-- [**JOLT // 88**](https://github.com/SVIGHNESH/Jolt-Refurbished) - a loud little notebook app. Next.js 14 on Postgres with Drizzle, Auth.js and Upstash rate limiting
-- [**Stackpage**](https://github.com/SVIGHNESH/Stackpage) - offline Android images-to-PDF utility. Declares no permissions at all, not even INTERNET, so "nothing is uploaded" is structural, not a promise
-- [**merge-blocks**](https://github.com/SVIGHNESH/merge-blocks) - mobile falling-block merge puzzle. Tetromino pieces carry powers of two; equal neighbours fuse and cascade. Offline, with a date-seeded daily challenge
-- [**train-tracker**](https://github.com/SVIGHNESH/train-tracker) - "Where is my Train" style app in Expo: live station-by-station status, delays, platforms, and direct-train search
-- [**DORO**](https://github.com/SVIGHNESH/DORO) - Pomodoro timer in Go
-- [**Neutralise**](https://github.com/SVIGHNESH/Neutralise) - browser extension that removes Shorts from YouTube
-- [**Scripts**](https://github.com/SVIGHNESH/Scripts), [**tmux-config**](https://github.com/SVIGHNESH/vighnesh-tmux-config), [**Hyprland-Config**](https://github.com/SVIGHNESH/Hyprland-Config) - the dotfiles that make the machine mine
-
-</details>
+| [**jedis**](https://github.com/SVIGHNESH/jedis) `Java` | Redis-compatible key-value store. Real `redis-cli` and `redis-benchmark` connect to it unmodified. Hand-built RESP parser, single-threaded event loop, active expiry. JUnit is the only dependency. |
+| [**kit**](https://github.com/SVIGHNESH/KIT) `Go` | Version control that keeps what git got right and drops what it got wrong. No staging area, and every history-changing operation is journaled so `kit undo` never loses work. |
+| [**tetris**](https://github.com/SVIGHNESH/tetris) `C++20` | Terminal Tetris where the engine does not know the terminal exists. The same core compiles to WebAssembly in [tetris-web](https://github.com/SVIGHNESH/tetris-web). |
+| [**Sealed**](https://github.com/SVIGHNESH/RealTimeChatApplication) `TypeScript` | End-to-end encrypted chat. The relay only ever sees ciphertext: AES-256-GCM keys derived from the invite-link fragment, every envelope signed by a per-device ECDSA key, history kept in the browser. |
+| [**gamep2p**](https://github.com/SVIGHNESH/p2p-game) `TypeScript` | 1v1 browser fighting game over WebRTC with rollback netcode. Deterministic fixed-point simulation, input prediction, snapshot ring, desync hashes, and a Playwright suite that plays real online matches. |
+| [**watch-party**](https://github.com/SVIGHNESH/watch-party) `Go` | Upload a video once, watch it in sync with 20-50 friends. ffmpeg builds a 3-rendition HLS ladder; a WebSocket hub per room owns playback state, so late joiners snap to the right second. |
+| [**OpsCommander**](https://github.com/SVIGHNESH/opscommander) `Python` | Seven agents that detect, diagnose, gate, remediate, and report on cloud incidents, with a human approval in front of anything risky. Every AWS service is mocked, so it runs with zero credentials. |
+| [**Pacman Sentry**](https://github.com/SVIGHNESH/pacman-sentry) `QML` | An [Omarchy](https://omarchy.org) bar widget that watches pacman: pending updates, risky packages flagged first, unread Arch news, and the `.pacnew` files you would otherwise forget. |
 
 ---
 
 ### `~$ cat stack.txt`
 
-**Languages**
-
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
-![QML](https://img.shields.io/badge/QML-41CD52?style=flat-square&logo=qt&logoColor=white)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-
-**Backend and real-time**
-
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
-![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=flat-square&logo=socketdotio&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-
-**Data and infrastructure**
-
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat-square&logo=archlinux&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 ---
 
 ### `~$ git log --stat`
 
 <!--
-  Stats cards run on a community mirror of github-readme-stats, because the
-  official instance (github-readme-stats.vercel.app) returns 503 DEPLOYMENT_PAUSED.
-  GitHub's Camo image proxy times out after ~4s, so the mirror must be fast AND
-  under its GitHub API rate limit. sigma-five started returning "Maximum retries
-  exceeded" (rate-limited), so this now uses salesp07. Every shared mirror will
-  eventually hit the same limit; the permanent fix is to deploy your own fork to
-  Vercel with your own PAT_1 token:
-      https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance
-  Removed: streak-stats.demolab.com (instance dead, connection times out),
-  komarev.com views counter (~5s, exceeds Camo timeout),
-  github-profile-trophy.vercel.app (402 Payment Required).
+  Stats cards: the official github-readme-stats instance returns 503, so these
+  use the salesp07 community mirror. If it starts rate-limiting, deploy your own
+  fork to Vercel with a PAT_1 token:
+  https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance
+
+  Contribution snake: generated by .github/workflows/snake.yml into the `output`
+  branch, so it has no third-party host to die on us.
 -->
 
 <p align="center">
@@ -175,7 +93,7 @@ Not to replace them, but because reading a Redis internals post and writing a wo
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=svighnesh&theme=react-dark&bg_color=0D1117&color=c9d1d9&line=58A6FF&point=ffffff&hide_border=true&area=true" alt="Contribution activity" width="98%">
+  <img src="https://raw.githubusercontent.com/SVIGHNESH/SVIGHNESH/output/github-snake.svg" alt="Contribution graph" width="98%">
 </p>
 
 ---
